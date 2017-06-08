@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/28 12:35:28 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/06/08 02:06:04 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/06/08 02:26:33 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_img	*mlxji_new_img(void *mlx, int width, int height)
 {
 	t_img	*img;
 
-	if (!(img = (t_img*)ft_memalloc(sizeof(t_img))))
+	if (!(img = (t_img*)malloc(sizeof(t_img))))
 		exit(0);
 	if (img == NULL)
 		return (NULL);
