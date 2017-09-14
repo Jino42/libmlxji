@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlxji.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ntoniolo <ntoniolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/28 13:26:57 by ntoniolo          #+#    #+#             */
-/*   Updated: 2016/12/04 18:09:30 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/09/12 19:40:02 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,34 @@
 # include "mlx.h"
 # include <stdlib.h>
 # include <string.h>
+
+/*
+** Input Event Masks. Used as event-mask window attribute and
+** as argument to Grab requests.  Not to be confused with event names.
+*/
+
+#define KEYPRESSMASK (1L<<0)
+#define KEYRELEASEMASK (1L<<1)
+#define BUTTONPRESSMASK (1L<<2)
+#define BUTTONRELEASEMASK (1L<<3)
+#define ENTERWINDOWMASK (1L<<4)
+#define LEAVEWINDOWMASK (1L<<5)
+
+/*
+** Event names.  Used in "type" field in XEvent structures.  Not to be
+** confused with event masks above.  They start from 2 because 0 and 1
+** are reserved in the protocol for errors and replies.
+*/
+
+#define KEYPRESS 2
+#define KEYRELEASE 3
+#define BUTTONPRESS 4
+#define BUTTONRELEASE 5
+#define MOTIONNOTIFY 6
+#define ENTERNOTIFY 7
+#define LEAVENOTIFY 8
+#define FOCUSIN 9
+#define FOCUSOUT 10
 
 typedef struct		s_img
 {
