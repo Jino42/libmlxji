@@ -6,7 +6,7 @@
 /*   By: ntoniolo <ntoniolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/28 13:26:57 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/09/12 19:40:02 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/09/21 19:29:49 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ typedef struct		s_pxtopx
 
 t_img				*mlxji_new_img(void *mlx, int width, int height);
 int					mlxji_clear_img(t_img *img);
-void				mlxji_put_pixel(t_img *img, int x, int y, t_px *px);
+void				mlxji_put_pixel(t_img *img, int x, int y, int col);
 int					mlxji_hsv_to_rgb(t_px *px, float h, float s, float v);
-int					mlxji_draw_line(t_img *img, t_px *px, t_pxtopx *to);
+int					mlxji_draw_line(t_img *img, t_pxtopx *to, int col);
 #endif

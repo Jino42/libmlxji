@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/29 17:56:01 by ntoniolo          #+#    #+#             */
-/*   Updated: 2016/12/04 18:07:31 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/09/21 19:30:22 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 
 #include "../includes/mlxji.h"
 
-static void	dx_dy(t_img *img, t_px *px, t_line *line)
+static void	dx_dy(t_img *img, int col, t_line *line)
 {
 	line->cumul = 0;
 	while (line->i < line->dx)
@@ -44,12 +44,12 @@ static void	dx_dy(t_img *img, t_px *px, t_line *line)
 		}
 		if ((line->x >= 0 && line->x <= 2048 - 1) &&
 			(line->y >= 1 && line->y <= 1350 - 1))
-			mlxji_put_pixel(img, line->x, line->y, px);
+			mlxji_put_pixel(img, line->x, line->y, col);
 		line->i++;
 	}
 }
 
-static void	dy_dx(t_img *img, t_px *px, t_line *line)
+static void	dy_dx(t_img *img, int col, t_line *line)
 {
 	line->cumul = 0;
 	while (line->i < line->dy)
@@ -63,12 +63,12 @@ static void	dy_dx(t_img *img, t_px *px, t_line *line)
 		}
 		if ((line->x >= 0 && line->x <= 2048 - 1) &&
 			(line->y >= 1 && line->y <= 1350 - 1))
-			mlxji_put_pixel(img, line->x, line->y, px);
+			mlxji_put_pixel(img, line->x, line->y, col);
 		line->i++;
 	}
 }
 
-int			mlxji_draw_line(t_img *img, t_px *px, t_pxtopx *to)
+int			mlxji_draw_line(t_img *img, t_pxtopx *to, int col)
 {
 	t_line	line;
 
@@ -83,10 +83,10 @@ int			mlxji_draw_line(t_img *img, t_px *px, t_pxtopx *to)
 	line.i = 0;
 	if ((line.x >= 0 && line.x <= 2048 - 1) &&
 		(line.y >= 1 && line.y <= 1350 - 1))
-		mlxji_put_pixel(img, line.x, line.y, px);
+		mlxji_put_pixel(img, line.x, line.y, col);
 	if (line.dx > line.dy)
-		dx_dy(img, px, &line);
+		dx_dy(img, col, &line);
 	else
-		dy_dx(img, px, &line);
+		dy_dx(img, col, &line);
 	return (1);
 }
