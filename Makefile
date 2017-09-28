@@ -6,7 +6,7 @@
 #    By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/02 18:45:43 by ntoniolo          #+#    #+#              #
-#    Updated: 2016/12/05 13:03:31 by ntoniolo         ###   ########.fr        #
+#    Updated: 2017/09/28 18:02:47 by ntoniolo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = libmlxji.a
 
 FLAGS = -Wall -Werror -Wextra
 
-SRC = srcs/mlxji_clear_img.c srcs/mlxji_draw_line.c srcs/mlxji_hsv_to_rgb.c srcs/mlxji_new_img.c srcs/mlxji_put_pixel.c
+SRC = srcs/mlxji_clear_img.c srcs/mlxji_draw_line.c srcs/mlxji_hsv_to_rgb.c srcs/mlxji_new_img.c srcs/mlxji_put_pixel.c srcs/mlxji_draw_x_line.c srcs/mlxji_draw_y_line.c srcs/mlxji_draw_case.c srcs/mlxji_rgb_to_int.c
 
 OBJET = $(SRC:.c=.o)
 

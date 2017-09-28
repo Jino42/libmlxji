@@ -6,7 +6,7 @@
 /*   By: ntoniolo <ntoniolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/28 13:26:57 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/09/21 19:29:49 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/09/28 18:05:56 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@
 ** as argument to Grab requests.  Not to be confused with event names.
 */
 
-#define KEYPRESSMASK (1L<<0)
-#define KEYRELEASEMASK (1L<<1)
-#define BUTTONPRESSMASK (1L<<2)
-#define BUTTONRELEASEMASK (1L<<3)
-#define ENTERWINDOWMASK (1L<<4)
-#define LEAVEWINDOWMASK (1L<<5)
+# define KEYPRESSMASK (1L<<0)
+# define KEYRELEASEMASK (1L<<1)
+# define BUTTONPRESSMASK (1L<<2)
+# define BUTTONRELEASEMASK (1L<<3)
+# define ENTERWINDOWMASK (1L<<4)
+# define LEAVEWINDOWMASK (1L<<5)
 
 /*
 ** Event names.  Used in "type" field in XEvent structures.  Not to be
@@ -35,15 +35,15 @@
 ** are reserved in the protocol for errors and replies.
 */
 
-#define KEYPRESS 2
-#define KEYRELEASE 3
-#define BUTTONPRESS 4
-#define BUTTONRELEASE 5
-#define MOTIONNOTIFY 6
-#define ENTERNOTIFY 7
-#define LEAVENOTIFY 8
-#define FOCUSIN 9
-#define FOCUSOUT 10
+# define KEYPRESS 2
+# define KEYRELEASE 3
+# define BUTTONPRESS 4
+# define BUTTONRELEASE 5
+# define MOTIONNOTIFY 6
+# define ENTERNOTIFY 7
+# define LEAVENOTIFY 8
+# define FOCUSIN 9
+# define FOCUSOUT 10
 
 typedef struct		s_img
 {
@@ -95,9 +95,14 @@ typedef struct		s_pxtopx
 	int			y2;
 }					t_pxtopx;
 
-t_img				*mlxji_new_img(void *mlx, int width, int height);
 int					mlxji_clear_img(t_img *img);
-void				mlxji_put_pixel(t_img *img, int x, int y, int col);
 int					mlxji_hsv_to_rgb(t_px *px, float h, float s, float v);
 int					mlxji_draw_line(t_img *img, t_pxtopx *to, int col);
+int					mlxji_rgb_to_int(t_px *col);
+void				mlxji_put_pixel(t_img *img, int x, int y, int col);
+void				mlxji_draw_case(t_img *img, t_pxtopx *px, int col);
+void				mlxji_draw_y_line(t_img *img, t_pxtopx *to, int col);
+void				mlxji_draw_x_line(t_img *img, t_pxtopx *to, int col);
+t_img				*mlxji_new_img(void *mlx, int width, int height);
+
 #endif

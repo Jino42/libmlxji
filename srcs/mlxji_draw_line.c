@@ -6,7 +6,7 @@
 /*   By: ntoniolo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/29 17:56:01 by ntoniolo          #+#    #+#             */
-/*   Updated: 2017/09/21 19:30:22 by ntoniolo         ###   ########.fr       */
+/*   Updated: 2017/09/21 22:29:29 by ntoniolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ static void	dx_dy(t_img *img, int col, t_line *line)
 			line->cumul -= line->dx;
 			line->y += line->yincr;
 		}
-		if ((line->x >= 0 && line->x <= 2048 - 1) &&
-			(line->y >= 1 && line->y <= 1350 - 1))
+		if ((line->x >= 0 && line->x < img->width) &&
+			(line->y >= 0 && line->y < img->height))
 			mlxji_put_pixel(img, line->x, line->y, col);
 		line->i++;
 	}
@@ -61,8 +61,8 @@ static void	dy_dx(t_img *img, int col, t_line *line)
 			line->cumul -= line->dy;
 			line->x += line->xincr;
 		}
-		if ((line->x >= 0 && line->x <= 2048 - 1) &&
-			(line->y >= 1 && line->y <= 1350 - 1))
+		if ((line->x >= 0 && line->x < img->width) &&
+			(line->y >= 0 && line->y < img->height))
 			mlxji_put_pixel(img, line->x, line->y, col);
 		line->i++;
 	}
@@ -81,8 +81,8 @@ int			mlxji_draw_line(t_img *img, t_pxtopx *to, int col)
 	line.dx = abs(line.dx);
 	line.dy = abs(line.dy);
 	line.i = 0;
-	if ((line.x >= 0 && line.x <= 2048 - 1) &&
-		(line.y >= 1 && line.y <= 1350 - 1))
+	if ((line.x >= 0 && line.x <= img->width) &&
+		(line.y >= 0 && line.y <= img->height))
 		mlxji_put_pixel(img, line.x, line.y, col);
 	if (line.dx > line.dy)
 		dx_dy(img, col, &line);
